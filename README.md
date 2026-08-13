@@ -32,15 +32,13 @@ LGBTQ+ identity and pride-flag selection
 
 Straight Ally card
 
-Gold Star Gay variant ⭐
+Gold Star/Platinum Gay variant ⭐
 
 Photo upload
 
 Automatic text resizing for long names
 
 Customizable card designs
-
-Rainbow QR code
 
 High-resolution PNG export
 
