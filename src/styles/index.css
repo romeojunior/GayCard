@@ -1,0 +1,54 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+	--rainbow-start: #ff4d8b;
+	--rainbow-mid: #ffd54a;
+	--rainbow-end: #6c5ce7;
+}
+
+html,body,#root{height:100%;}
+body { @apply bg-gray-50 font-sans; }
+
+/* subtle noise texture using inline SVG data URI */
+.noise-overlay{
+	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='f'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%' height='100%' filter='url(%23f)' opacity='0.06' fill='white'/></svg>");
+	background-repeat: repeat;
+	mix-blend-mode: overlay;
+}
+
+.hero-bg{
+	background: linear-gradient(120deg, #ff6b9f 0%, #ffd66b 35%, #4dd0e1 65%, #7b61ff 100%);
+	position: relative;
+}
+
+.hero-bg::after{
+	content:''; position:absolute; inset:0; pointer-events:none; opacity:0.25; background-image:linear-gradient(180deg, rgba(0,0,0,0.03), rgba(255,255,255,0.03));
+}
+
+.card-area{
+	background-color:#0b0b0b;
+	background-image: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));
+}
+
+.silver-panel{
+	background: linear-gradient(180deg,#d7d9db 0%, #bfc4c7 100%);
+	border-radius: 12px;
+	padding: 1rem;
+	box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+	border: 1px solid rgba(255,255,255,0.18);
+	background-blend-mode: multiply;
+}
+
+.avatar-ring{
+	display:inline-block;
+	border-radius:9999px;
+	padding:6px; background:linear-gradient(90deg,#fff,#fff);
+}
+
+.avatar-inner{border-radius:9999px; overflow:hidden; width:140px; height:140px; display:block;}
+
+.region-badge{background:linear-gradient(90deg,var(--rainbow-start),var(--rainbow-mid),var(--rainbow-end)); color:white; padding:.25rem .5rem; border-radius:999px; font-weight:600;}
+

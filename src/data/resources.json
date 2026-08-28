@@ -1,0 +1,43 @@
+[
+  {
+    "id": "phil-lgbt-1",
+    "name": "The LoveYourself Project",
+    "region": "NCR",
+    "description": "HIV/AIDS prevention, testing, and community services for LGBTQ+ Filipinos.",
+    "url": "https://www.loveyourself.ph/",
+    "contact": "info@loveyourself.ph",
+    "tags": ["HIV", "testing", "counseling"]
+  },
+  {
+    "id": "phil-lgbt-2",
+    "name": "Metro Manila Pride",
+    "region": "NCR",
+    "description": "Annual pride events and community organizing in Metro Manila.",
+    "url": "https://www.facebook.com/metromanilapride",
+    "tags": ["events", "community"]
+  },
+  {
+    "id": "phil-lgbt-3",
+    "name": "Mindanao Rainbow Network",
+    "region": "Mindanao",
+    "description": "Support network and resources for LGBTQ+ people in Mindanao.",
+    "url": "https://example.org/mindanao-rainbow",
+    "tags": ["support", "network"]
+  },
+  {
+    "id": "phil-lgbt-4",
+    "name": "Visayas LGBTQ Helpline",
+    "region": "Visayas",
+    "description": "Regional helpline and resource index for Visayas-based communities.",
+    "url": "https://example.org/visayas-helpline",
+    "tags": ["helpline", "resources"]
+  },
+  {
+    "id": "phil-lgbt-5",
+    "name": "Luzon Alliance for Equality",
+    "region": "Luzon",
+    "description": "Advocacy and legal aid resources for Luzon-based LGBTQ+ individuals.",
+    "url": "https://example.org/luzon-alliance",
+    "tags": ["advocacy", "legal"]
+  }
+]
