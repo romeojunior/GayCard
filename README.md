@@ -22,6 +22,16 @@ Notes
 - Update the contact email in `src/App.jsx` footer.
 - To deploy, push this repo to GitHub and use GitHub Pages, Vercel, or Netlify.
 
+GitHub Pages
+
+The repository includes `.github/workflows/deploy.yml`. After uploading or merging these files:
+
+1. Open the repository's Settings → Pages.
+2. Set the source to GitHub Actions.
+3. Push to `main` or run the "Deploy to GitHub Pages" workflow from the Actions tab.
+
+The expected site URL is `https://romeojunior.github.io/GayCard/`.
+
 Contributing
 
 - Use the issue template "Suggest a resource" to propose additions or corrections.
