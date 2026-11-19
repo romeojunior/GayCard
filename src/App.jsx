@@ -1,101 +1,55 @@
 import React, { useMemo, useState } from 'react'
 import resources from './data/resources.json'
 
-const REGIONS = ['All', 'NCR', 'Luzon', 'Visayas', 'Mindanao']
-
-function Badge({ children }) {
-  return (
-    <span className="region-badge text-xs">{children}</span>
-  )
-}
+const REGIONS = ['All', 'Nationwide', 'NCR', 'Luzon', 'Visayas', 'Mindanao']
+const TYPES = ['All', 'Health', 'Wellness', 'Education', 'Rights']
+const globalResources = [
+  ['APCOM', 'Asia-Pacific health', 'Regional LGBTQI and key-population health, rights, HIV, and community resources.', 'https://www.apcom.org/'],
+  ['ASEAN SOGIE Caucus', 'Regional rights', 'SOGIESC advocacy, research, and regional human-rights resources.', 'https://aseansogiecaucus.org/'],
+  ['ILGA World', 'Global rights', 'Global research, advocacy, and a directory of LGBTI organizations.', 'https://ilga.org/'],
+  ['Outright International', 'Global rights', 'Human-rights advocacy, research, and resources focused on LGBTQIA+ people worldwide.', 'https://outrightinternational.org/'],
+  ['GATE', 'Trans advocacy', 'Global Action for Trans Equality: trans-led advocacy, health, and human-rights resources.', 'https://gate.ngo/'],
+  ['The Trevor Project', 'Research & education', 'LGBTQ young-person research and education. Its crisis services are U.S.-based, not a Philippines hotline.', 'https://www.thetrevorproject.org/research-briefs/'],
+  ['Rainbow Railroad', 'Safety & advocacy', 'Support and advocacy for LGBTQI+ people facing persecution; review eligibility and current intake guidance first.', 'https://www.rainbowrailroad.org/'],
+  ['UNAIDS', 'HIV information', 'Evidence-based global HIV data, policy, and community resources.', 'https://www.unaids.org/']
+]
 
 export default function App() {
   const [query, setQuery] = useState('')
   const [region, setRegion] = useState('All')
+  const [type, setType] = useState('All')
 
   const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase()
-    return resources.filter(r => {
-      if (region !== 'All' && r.region !== region) return false
-      if (!q) return true
-      return (
-        r.name.toLowerCase().includes(q) ||
-        r.description.toLowerCase().includes(q) ||
-        (r.tags || []).join(' ').toLowerCase().includes(q)
-      )
+    const search = query.trim().toLowerCase()
+    return resources.filter(resource => {
+      const matchesRegion = region === 'All' || resource.region === region
+      const matchesType = type === 'All' || resource.type === type
+      const text = `${resource.name} ${resource.place} ${resource.description} ${resource.tags.join(' ')}`.toLowerCase()
+      return matchesRegion && matchesType && (!search || text.includes(search))
     })
-  }, [query, region])
+  }, [query, region, type])
 
-  return (
-    <div className="min-h-screen p-6">
-      <div className="max-w-5xl mx-auto">
-        <header className="mb-6 flex items-center gap-4 hero-bg rounded-lg p-6 text-white noise-overlay">
-          <div className="w-16 h-16 rounded-lg bg-white/10 flex items-center justify-center font-serif text-2xl">LGBT</div>
-          <div>
-            <h1 className="text-3xl font-serif">LGBT Philippines — Resources</h1>
-            <p className="text-sm text-white/90">Organizations, charities, and helpful links for Filipino LGBTQ+ communities.</p>
-          </div>
-        </header>
+  return <main>
+    <header className="site-header">
+      <a className="brand" href="#top"><span>✦</span> Bahaghari <em>Guide PH</em></a>
+      <nav><a href="#directory">Philippines</a><a href="#global">Global</a><a href="#learn">Learn</a><a href="#rights">Know your rights</a></nav>
+    </header>
 
-        <section className="bg-white p-4 rounded-lg shadow mb-6">
-          <div className="flex gap-3 flex-col sm:flex-row">
-            <input
-              aria-label="Search"
-              className="flex-1 border rounded px-3 py-2"
-              placeholder="Search by name, tag, or keyword"
-              value={query}
-              onChange={e => setQuery(e.target.value)}
-            />
-            <select className="border rounded px-3 py-2" value={region} onChange={e => setRegion(e.target.value)}>
-              {REGIONS.map(r => (
-                <option key={r} value={r}>{r}</option>
-              ))}
-            </select>
-          </div>
-        </section>
+    <section id="top" className="hero">
+      <div><p className="eyebrow on-dark">For LGBTQIA+ Filipinos, by community</p><h1>You deserve care, safety, and a place to belong.</h1><p className="lede">A private, judgment-free guide to LGBTQIA+-affirming health, wellness, education, and rights resources in the Philippines.</p><a className="button" href="#directory">Find support near you</a></div>
+      <div className="hero-card" aria-hidden="true"><span className="hero-star one">✦</span><span className="hero-star two">✧</span><div className="hero-id"><small>COMMUNITY ID</small><strong>YOU<br />BELONG<br />HERE</strong><i>HEALTH · CARE · PRIDE</i></div><div className="hero-medal">✦</div></div>
+    </section>
 
-        <section className="space-y-4">
-          {filtered.length === 0 && (
-            <div className="text-center text-gray-500">No results. Try a different keyword or region.</div>
-          )}
+    <section className="urgent" aria-labelledby="urgent-title"><div><p className="eyebrow">Need support now?</p><h2 id="urgent-title">You don’t have to carry it alone.</h2></div><div className="urgent-links"><a href="tel:1553"><b>NCMH Crisis Line</b><span>Call 1553</span></a><a href="https://chr.gov.ph/" target="_blank" rel="noreferrer"><b>Human-rights concern</b><span>Contact CHR ↗</span></a><a href="https://www.queersafespacesph.org/" target="_blank" rel="noreferrer"><b>Queer peer support</b><span>Queer Safe Spaces PH ↗</span></a></div><p className="tiny">If you are in immediate danger, call local emergency services. Hotline availability can change—please confirm before visiting.</p></section>
 
-          {filtered.map(r => (
-            <article key={r.id} className="card-area p-4 rounded-lg shadow flex flex-col sm:flex-row gap-4 items-center">
-              <div className="flex items-center gap-4">
-                <div className="avatar-ring">
-                  <img className="avatar-inner" src={`https://via.placeholder.com/140?text=${encodeURIComponent(r.name.split(' ')[0])}`} alt="avatar" />
-                </div>
-              </div>
+    <section id="directory" className="section directory"><p className="eyebrow">Verified starting points</p><h2>Philippines resource directory</h2><p className="section-copy">The main directory is focused on Philippine services. Search by organization, city, or service—or choose a region and support type.</p><div className="filters"><input aria-label="Search resources" placeholder="Search organizations, city, or service" value={query} onChange={event => setQuery(event.target.value)} /><select aria-label="Filter by support type" value={type} onChange={event => setType(event.target.value)}>{TYPES.map(item => <option key={item}>{item === 'All' ? 'All support types' : item}</option>)}</select><select aria-label="Filter by region" value={region} onChange={event => setRegion(event.target.value)}>{REGIONS.map(item => <option key={item}>{item === 'All' ? 'All Philippine areas' : item}</option>)}</select></div><p className="count">{filtered.length} Philippine resource{filtered.length === 1 ? '' : 's'}</p><div className="grid">{filtered.map(resource => <article className="resource-card" key={resource.id}><span className="tag">{resource.type} · {resource.region}</span><h3>{resource.name}</h3><p>{resource.description}</p><footer><span>{resource.place}</span><a href={resource.url} target="_blank" rel="noreferrer">Official site ↗</a></footer></article>)}</div>{filtered.length === 0 && <p className="empty">No matches yet. Try another term or filter.</p>}<p className="tiny">Every listing links to an organization or government page. Service hours and eligibility can change, so confirm with the provider before visiting.</p></section>
 
-              <div className="flex-1 text-white">
-                <div className="flex items-center justify-between gap-4">
-                  <h2 className="text-lg font-serif">{r.name}</h2>
-                  <Badge>{r.region}</Badge>
-                </div>
-                <p className="text-sm text-white/80 mt-2">{r.description}</p>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {(r.tags || []).map(t => (
-                    <span key={t} className="text-xs px-2 py-1 bg-white/10 rounded text-white">{t}</span>
-                  ))}
-                </div>
-              </div>
+    <section id="global" className="section global"><p className="eyebrow">Beyond the Philippines</p><h2>Global knowledge & advocacy</h2><p className="section-copy">These resources complement—not replace—Philippine services. Check each organization’s location and eligibility before seeking direct help.</p><div className="grid global-grid">{globalResources.map(([name, category, description, url]) => <article className="resource-card global-card" key={name}><span className="tag">{category}</span><h3>{name}</h3><p>{description}</p><footer><span>Online / international</span><a href={url} target="_blank" rel="noreferrer">Official site ↗</a></footer></article>)}</div></section>
 
-              <div className="w-full sm:w-56">
-                <div className="silver-panel text-black">
-                  <div className="flex justify-between items-start">
-                    <a className="text-indigo-700 hover:underline" href={r.url} target="_blank" rel="noreferrer">Visit</a>
-                    {r.contact && <a className="text-sm text-indigo-800" href={`mailto:${r.contact}`}>Email</a>}
-                  </div>
-                </div>
-              </div>
-            </article>
-          ))}
-        </section>
+    <section id="learn" className="section learn"><div><p className="eyebrow">Clear, kind, and evidence-aware</p><h2>Learn at your own pace.</h2><p className="section-copy">Explore trusted Philippine resources for understanding SOGIESC, LGBTQIA+ rights, health, and inclusive education.</p><a className="button dark" href="https://rainbowresearchhub.up.edu.ph/" target="_blank" rel="noreferrer">Visit the Rainbow Research Hub ↗</a></div><div className="learn-list"><a href="https://www.babaylanes.org/" target="_blank" rel="noreferrer"><b>01</b><span><strong>Babaylanes Resource Hub</strong><small>Youth education & human rights</small></span></a><a href="https://www.pantay.org/" target="_blank" rel="noreferrer"><b>02</b><span><strong>PANTAY</strong><small>Safer and more inclusive schools</small></span></a><a href="https://www.amnesty.org.ph/campaigns/sogiesc/" target="_blank" rel="noreferrer"><b>03</b><span><strong>Amnesty PH SOGIESC</strong><small>Human-rights learning resources</small></span></a></div></section>
 
-        <footer className="mt-8 text-center text-sm text-gray-500">
-          <p>Found an issue or resource to add? Open an issue on the repo or email <a className="text-indigo-600" href="mailto:placeholder@example.com">placeholder@example.com</a>.</p>
-        </footer>
-      </div>
-    </div>
-  )
+    <section id="rights" className="rights"><div><p className="eyebrow on-dark">Your dignity is not negotiable</p><h2>Know your rights, and where to turn.</h2><p>Discrimination, harassment, or violence is never your fault. Documentation and support can help you decide what comes next.</p><a className="button lime" href="https://rrightsphl.org/" target="_blank" rel="noreferrer">Explore legal resources ↗</a></div><ol><li><b>1</b><span>Get to safety and reach a person or service you trust.</span></li><li><b>2</b><span>Write down what happened and save messages, photos, or records if it is safe to do so.</span></li><li><b>3</b><span>Contact Rainbow Rights PH or the Commission on Human Rights for options and guidance.</span></li></ol></section>
+    <footer className="site-footer"><span className="brand"><span>✦</span> Bahaghari <em>Guide PH</em></span><p>Made as a community information guide. It does not collect personal information or provide medical or legal advice.</p><p>Last reviewed: October 2026</p></footer>
+  </main>
 }
+
