@@ -1,43 +1,24 @@
 [
-  {
-    "id": "phil-lgbt-1",
-    "name": "The LoveYourself Project",
-    "region": "NCR",
-    "description": "HIV/AIDS prevention, testing, and community services for LGBTQ+ Filipinos.",
-    "url": "https://www.loveyourself.ph/",
-    "contact": "info@loveyourself.ph",
-    "tags": ["HIV", "testing", "counseling"]
-  },
-  {
-    "id": "phil-lgbt-2",
-    "name": "Metro Manila Pride",
-    "region": "NCR",
-    "description": "Annual pride events and community organizing in Metro Manila.",
-    "url": "https://www.facebook.com/metromanilapride",
-    "tags": ["events", "community"]
-  },
-  {
-    "id": "phil-lgbt-3",
-    "name": "Mindanao Rainbow Network",
-    "region": "Mindanao",
-    "description": "Support network and resources for LGBTQ+ people in Mindanao.",
-    "url": "https://example.org/mindanao-rainbow",
-    "tags": ["support", "network"]
-  },
-  {
-    "id": "phil-lgbt-4",
-    "name": "Visayas LGBTQ Helpline",
-    "region": "Visayas",
-    "description": "Regional helpline and resource index for Visayas-based communities.",
-    "url": "https://example.org/visayas-helpline",
-    "tags": ["helpline", "resources"]
-  },
-  {
-    "id": "phil-lgbt-5",
-    "name": "Luzon Alliance for Equality",
-    "region": "Luzon",
-    "description": "Advocacy and legal aid resources for Luzon-based LGBTQ+ individuals.",
-    "url": "https://example.org/luzon-alliance",
-    "tags": ["advocacy", "legal"]
-  }
+  {"id":"loveyourself","name":"LoveYourself","type":"Health","region":"Nationwide","place":"Philippines","description":"Free HIV/STI testing, PrEP, treatment support, trans health, and mental-health peer support through community hubs.","url":"https://loveyourself.ph/","tags":["HIV","PrEP","trans health"]},
+  {"id":"hash","name":"HASH Philippines","type":"Health","region":"Nationwide","place":"Philippines / online","description":"Community-led HIV screening, self-test kits, PrEP, care navigation, and LGBTQ+ wellness support.","url":"https://hashph.org/","tags":["HIV","testing","care"]},
+  {"id":"queer-safe-spaces","name":"Queer Safe Spaces PH","type":"Wellness","region":"Nationwide","place":"Philippines / online","description":"Filipino LGBTQIA+ peer community, mental-health learning, and queer-affirmative consultation initiatives.","url":"https://www.queersafespacesph.org/","tags":["mental health","peer support"]},
+  {"id":"pantay","name":"PANTAY","type":"Education","region":"Nationwide","place":"Philippines","description":"Youth-led advocacy and tools for safer, more inclusive schools and communities.","url":"https://www.pantay.org/","tags":["youth","schools","SOGIESC"]},
+  {"id":"babaylanes","name":"Babaylanes","type":"Education","region":"Nationwide","place":"Philippines","description":"LGBTQI youth capacity-building, human-rights education, research, and resource materials.","url":"https://www.babaylanes.org/","tags":["education","human rights"]},
+  {"id":"rainbow-research","name":"UP Rainbow Research Hub","type":"Education","region":"Nationwide","place":"Online","description":"Open educational resources and Philippine LGBTQI research for learners and educators.","url":"https://rainbowresearchhub.up.edu.ph/","tags":["research","education"]},
+  {"id":"amnesty","name":"Amnesty International Philippines","type":"Education","region":"Nationwide","place":"Philippines","description":"SOGIESC human-rights education and resources for schools, communities, and allies.","url":"https://www.amnesty.org.ph/campaigns/sogiesc/","tags":["rights","schools"]},
+  {"id":"chr","name":"Commission on Human Rights","type":"Rights","region":"Nationwide","place":"Philippines","description":"Official public-access route for human-rights concerns, complaints, counseling, and legal-advice requests.","url":"https://chr.gov.ph/","tags":["complaints","legal"]},
+  {"id":"camp","name":"CAMP Pag-Ayo","type":"Wellness","region":"NCR","place":"NCR, Rizal & online","description":"Arts-based training and stigma-reduction work around HIV, mental health, and LGBTQIA+ rights.","url":"https://www.campincph.org/","tags":["mental health","HIV"]},
+  {"id":"galang","name":"GALANG Philippines","type":"Rights","region":"NCR","place":"Metro Manila","description":"Lesbian-led feminist human-rights organization working with LBT people, especially in urban-poor communities.","url":"https://www.galangphilippines.org/","tags":["LBT","rights"]},
+  {"id":"rainbow-rights","name":"Rainbow Rights Philippines","type":"Rights","region":"NCR","place":"Quezon City / online","description":"Legal literacy, community paralegal work, policy advocacy, and LGBTQIA+ rights resources.","url":"https://rrightsphl.org/","tags":["legal","paralegal"]},
+  {"id":"abe-agape","name":"LoveYourself ABE & AGAPE","type":"Health","region":"Luzon","place":"Pampanga & Tarlac","description":"Community hubs offering free HIV-related services in Central Luzon.","url":"https://loveyourself.ph/hubsclinics/","tags":["HIV","testing"]},
+  {"id":"bagani","name":"LoveYourself Bagani","type":"Health","region":"Visayas","place":"Bacolod City, Negros Occidental","description":"A Champion Community Center providing free HIV testing and a welcoming sexual-health space.","url":"https://loveyourself.ph/hubsclinics/","tags":["HIV","Bacolod"]},
+  {"id":"cebu-hubs","name":"LoveYourself White House & Sireya","type":"Health","region":"Visayas","place":"Cebu City & Lapu-Lapu City","description":"Community hubs in Cebu offering free HIV testing and sexual-health support.","url":"https://loveyourself.ph/hubsclinics/","tags":["HIV","Cebu"]},
+  {"id":"colors","name":"Transgender COLORS, Inc.","type":"Health","region":"Visayas","place":"Cebu City","description":"Transgender-led health, HIV/STI education, peer support, and human-rights advocacy.","url":"https://www.who.int/philippines/news/feature-stories/detail/colors-making-a-difference-for-the-transgender-community","tags":["trans health","Cebu"]},
+  {"id":"iloilo","name":"Iloilo LGBTQ+ Support","type":"Wellness","region":"Visayas","place":"Iloilo Province","description":"Provincial LGBTQIA+ inclusion, rights, and wellness initiatives led with local social-welfare and GAD partners.","url":"https://www.iloilo.gov.ph/index.php/en/taxonomy/term/1482","tags":["wellness","Iloilo"]},
+  {"id":"jefferyi","name":"LoveYourself Jefferyi","type":"Health","region":"Mindanao","place":"Davao City","description":"A community hub for HIV testing and sexual-health needs of Davao and neighboring provinces.","url":"https://loveyourself.ph/hubsclinics/","tags":["HIV","Davao"]},
+  {"id":"mindanao-pride","name":"Mindanao Pride","type":"Rights","region":"Mindanao","place":"Cagayan de Oro / Mindanao","description":"A nonprofit advancing the rights and welfare of sexual and gender minorities across Mindanao.","url":"https://www.mindanaopride.org/","tags":["rights","Cagayan de Oro"]},
+  {"id":"imglad","name":"IMGLAD, Inc.","type":"Rights","region":"Mindanao","place":"Cotabato, Iligan & Lanao areas","description":"A Tri-People LGBTQIA+ organization working for holistic empowerment, dignity, and safety in Mindanao.","url":"https://imgladmin.wixsite.com/website/copy-of-about-1","tags":["Mindanao","community"]},
+  {"id":"mujer","name":"Mujer LGBT+ Organization","type":"Rights","region":"Mindanao","place":"Zamboanga City & Mindanao","description":"Community-led human-rights assistance, advocacy, and mobilization for LGBTQIA+ people in Mindanao.","url":"https://www.mujerlgbt.org/","tags":["rights","Zamboanga"]},
+  {"id":"davao-health","name":"Davao City Health Office","type":"Health","region":"Mindanao","place":"Davao City","description":"Local public-health services including reproductive health, STI/HIV/AIDS services, counseling, and referrals.","url":"https://davaocity.gov.ph/departments/social-services/city-health-office/","tags":["health","Davao"]}
 ]
+
